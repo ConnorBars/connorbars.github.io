@@ -195,11 +195,13 @@ function handleAppleCollision() {
 
 
 function hasCollidedWithSnake() {
- for (let i = 1; i < snake.body.length; i++) {
-if (snake.body[i] = snake.head){
-  endGame ()
-}
- }
+  for (let i = 1; i < snake.body.length; i++) {
+    if (snake.body[i].column === snake.head.column) {
+      if (snake.body[i].row === snake.head.row) {
+        return true
+      }
+    }
+  }
   /* 
   TODO 12: Should return true if the snake's head has collided with any part of the
   snake's body.
@@ -225,7 +227,7 @@ function endGame() {
   score = 0;
 
   // restart the game after 500 ms
-  setTimeout(init, 500);
+  setTimeout(init, 100);
 }
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -323,14 +325,12 @@ function getRandomAvailablePosition() {
     randomPosition.column = Math.floor(Math.random() * COLUMNS);
     randomPosition.row = Math.floor(Math.random() * ROWS);
     spaceIsAvailable = true;
-    for (let i = 0; i < snake.body.length; i++) {
-     if (snake.body = randomPosition){
-      false
-     }
-    }
-if (randomPosition = snake.body) {
-  false
-}
+    for (let i = 1; i < snake.body.length; i++) {
+      if (snake.body[i].column === randomPosition) {
+        if (snake.body[i].row === randomPosition) {
+          return false
+        }
+      }
     /*
     TODO 13: After generating the random position determine if that position is
     not occupied by a snakeSquare in the snake's body. If it is then set 
@@ -339,7 +339,7 @@ if (randomPosition = snake.body) {
   }
 
   return randomPosition;
-}
+}}
 
 function calculateHighScore() {
   // retrieve the high score from session storage if it exists, or set it to 0
