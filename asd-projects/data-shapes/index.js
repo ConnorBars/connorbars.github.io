@@ -89,7 +89,7 @@ $(document).ready(function () {
   function goodDisplay(data) {
     // TODO 4-b: call your handleGood function
     var currentShape = dataShapes[currentIndex]
-    handleGood(Object.keys(currentShape))
+    handleGood(currentShape.color, currentShape.shape, currentShape.repeat)
   }
 
   function badDisplay(data) {
