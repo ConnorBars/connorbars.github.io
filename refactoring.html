@@ -1,0 +1,39 @@
+<script>
+    function calculateStudentGrades(grades) {
+        let totalGrades = 0;
+        for (let i = 0; i < calculateStudentGrades.length; i++) {
+            totalGrades += calculateStudentGrades[i];
+
+            return totalGrades;
+        }
+        getHighestGrade(grades)
+    }
+
+function getAverageGrade(grades) {
+    let averageGrade = totalGrades / grades.length;
+    if (averageGrade >= 90) {
+        console.log("Final Grade: A");
+    } else if (averageGrade >= 80) {
+        console.log("Final Grade: B");
+    } else if (averageGrade >= 70) {
+        console.log("Final Grade: C");
+    } else {
+        console.log("Final Grade: F");
+    }
+}
+
+    function getHighestGrade(grades) {
+        let highestGrade = grades[0];
+        let gradeCount = grades.length
+
+        for (let i = 0; i < gradeCount; i++) {
+            if (gradeCount[i] > highestGrade) {
+                highestGrade = gradeCount[i]
+            }
+            return ("Highest Grade: " + highestGrade)
+        }
+    }
+calculateStudentGrades([85, 92, 88, 76, 95])
+
+
+</script>
